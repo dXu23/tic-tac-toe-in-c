@@ -7,6 +7,20 @@
 #define ARR_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 /**
+ * prints out usage info
+ * 
+ * @param exec_name name of the executable, usually tictactoe
+ */
+void help(char *exec_name) {
+    printf("Usage: %s\n", exec_name);
+    puts("Players take turns trying to get three in a row. Player 1, who goes first");
+    puts("is X, and Player 2 is O. Players first enter coordinates separated by commas,");
+    puts("with the row first and the column second (e.g. \"1, 1\")");
+
+    exit(EXIT_SUCCESS);
+}
+
+/**
  * \brief prints the current state of the board
  */
 void print_board(char board[3][3]) {
@@ -128,7 +142,11 @@ bool has_won(char board[3][3]) {
 }
 
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    if (argc >= 2) {
+	help(argv[0]);
+    }
+    
     char board[3][3];
     char buf[8];
 
