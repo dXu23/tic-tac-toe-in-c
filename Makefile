@@ -10,4 +10,4 @@ tictactoe: tictactoe.c
 .PHONY: clean
 
 clean:
-	rm tictactoe
+	rm -f tictactoe
