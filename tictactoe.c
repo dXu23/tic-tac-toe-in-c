@@ -178,10 +178,14 @@ int main(int argc, char *argv[]) {
         board[y][x] = playerTurn;
 
         hw = has_won(board);
+
+        if (hw) {
+            break;
+        }
         i++;
         playerTurn ^= 'X' ^ 'O';
 
-    } while (!hw && i <= 9);
+    } while (i <= 9);
 
     if (hw) {
         printf("%c has won!\n", playerTurn);
